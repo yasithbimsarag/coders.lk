@@ -1171,20 +1171,6 @@ export function Navbar() {
     </header>
   );
 }
-✅ Checklist
-logo.png exists in src/assets/
-
-Import uses relative path: import logo from '../assets/logo.png';
-
-<img src={logo} /> used instead of icon
-
-Server restarted: npm run dev
-
-If you follow this exactly, the logo will show without any Vite errors and mobile menu + scroll effects work perfectly.
-
-If you want, I can also upgrade this navbar to look like modern SaaS style with glass blur + animated active link + smooth mobile dropdown — it will look super professional.
-
-Do you want me to do that next?
 
 
 
