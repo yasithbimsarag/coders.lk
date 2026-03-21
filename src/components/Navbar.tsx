@@ -1,8 +1,3 @@
-
-
-
-Claim offer
-
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, XIcon, Code2Icon } from 'lucide-react';
@@ -36,7 +31,7 @@ export function Navbar() {
   }, []);
   return (
     <header
-      className={fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}}>
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -130,6 +125,7 @@ export function Navbar() {
       </AnimatePresence>
     </header>);
 
+<<<<<<< HEAD
 }
 i need to adda image for the logo how can i do it tell me step by step
 
@@ -1175,3 +1171,6 @@ export function Navbar() {
 
 
 
+=======
+}
+>>>>>>> parent of 15bb6c9 (logo update)
