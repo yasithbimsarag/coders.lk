@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, XIcon, Code2Icon } from 'lucide-react';
-import logo from '../assets/logo.png';
-
-
 const navLinks = [
 {
   name: 'Services',
@@ -44,13 +41,9 @@ export function Navbar() {
             className="flex items-center gap-2 group"
             aria-label="coders.lk Home">
             
-            <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg group-hover:shadow-accent-primary/40 transition-all">
-  <img 
-    src={logo} 
-    alt="coders.lk logo" 
-    className="w-full h-full object-cover"
-  />
-</div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center text-white shadow-lg shadow-accent-primary/20 group-hover:shadow-accent-primary/40 transition-all">
+              <Code2Icon className="w-6 h-6" />
+            </div>
             <span className="text-xl font-extrabold text-white tracking-tight">
               coders.lk
             </span>
