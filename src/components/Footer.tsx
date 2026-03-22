@@ -161,7 +161,7 @@ export function Footer() {
           </p>
           <p className="text-slate-500 text-sm flex items-center gap-1">
             Designed with <span className="text-accent-primary">♥</span> in
-            California
+            Sri Lanka
           </p>
         </div>
       </div>
