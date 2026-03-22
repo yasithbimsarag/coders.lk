@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { QuoteIcon } from 'lucide-react';
 const testimonials = [
