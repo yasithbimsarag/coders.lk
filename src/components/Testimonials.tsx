@@ -5,21 +5,21 @@ const testimonials = [
 {
   quote:
   'coders.lk completely transformed our manufacturing process. The custom ERP they built reduced our inventory waste by 30% in the first quarter alone.',
-  name: 'Sarah Jenkins',
+  name: 'Shadhana Yasas',
   role: 'Operations Director',
   company: 'Stellar Manufacturing'
 },
 {
   quote:
   'The POS system is incredibly intuitive. Training new staff takes half the time it used to, and the cloud syncing means I can check sales from anywhere.',
-  name: 'Marcus Chen',
+  name: 'Ilham Ahmed ',
   role: 'Owner',
   company: 'Urban Roast Coffee Co.'
 },
 {
   quote:
   "Our new web platform handles 10x the traffic without breaking a sweat. The team's attention to performance and modern architecture is unmatched.",
-  name: 'Elena Rodriguez',
+  name: 'Naveen Perera',
   role: 'CTO',
   company: 'FinServe Digital'
 }];
