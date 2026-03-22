@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+
 import { motion } from 'framer-motion';
 import { ArrowRightIcon, ChevronRightIcon } from 'lucide-react';
 export function Hero() {
