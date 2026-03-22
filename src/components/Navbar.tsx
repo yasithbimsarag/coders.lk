@@ -42,7 +42,7 @@ export function Navbar() {
             aria-label="coders.lk - Building Digital Excellence">
             
             <img
-              src="/logo.svg"
+              src="/logo1.jpeg"
               alt="coders.lk logo"
               className="w-10 h-10 rounded-xl shadow-lg shadow-accent-primary/20 group-hover:shadow-accent-primary/40 transition-all"
             />
