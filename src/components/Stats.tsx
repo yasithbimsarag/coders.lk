@@ -40,17 +40,17 @@ function AnimatedCounter({ value, suffix = '', duration = 2 }) {
 const stats = [
 {
   label: 'Projects Delivered',
-  value: 150,
+  value: 10,
   suffix: '+'
 },
 {
   label: 'Years Experience',
-  value: 8,
+  value: 2,
   suffix: '+'
 },
 {
   label: 'Enterprise Clients',
-  value: 50,
+  value: 10,
   suffix: '+'
 },
 {
