@@ -1,5 +1,5 @@
 
-import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon, Instagram } from 'lucide-react';
+import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon, Instagram, Facebook } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-background border-t border-white/5 pt-16 pb-8">
@@ -40,6 +40,13 @@ export function Footer() {
                 aria-label="GitHub">
                 
                 <GithubIcon className="w-5 h-5" />
+              </a>
+               <a
+                href="#"
+                className="text-slate-400 hover:text-white transition-colors"
+                aria-label="facebook">
+                
+                <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
