@@ -1,5 +1,5 @@
 
-import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon, Instagram, Facebook } from 'lucide-react';
+import { Code2Icon, GithubIcon, LinkedinIcon, Instagram, Facebook } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-background border-t border-white/5 pt-16 pb-8">
@@ -126,6 +126,15 @@ export function Footer() {
                   UI/UX Design
                 </a>
               </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-slate-400 hover:text-accent-primary transition-colors">
+                  
+                  Mobile Applications
+                </a>
+              </li>
+              
             </ul>
           </div>
 
