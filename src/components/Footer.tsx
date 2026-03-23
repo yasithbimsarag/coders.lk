@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon } from 'lucide-react';
 export function Footer() {
   return (
