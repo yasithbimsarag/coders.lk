@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from 'lucide-react';
+import { MailIcon, PhoneIcon, SendIcon } from 'lucide-react';
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -65,7 +65,7 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              {/* <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-primary flex-shrink-0">
                   <MapPinIcon className="w-6 h-6" />
                 </div>
@@ -77,7 +77,7 @@ export function Contact() {
                     Tech District, CA 94103
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
