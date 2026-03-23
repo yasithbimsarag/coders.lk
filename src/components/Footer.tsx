@@ -1,5 +1,5 @@
 
-import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon } from 'lucide-react';
+import { Code2Icon, GithubIcon, TwitterIcon, LinkedinIcon, Instagram } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-background border-t border-white/5 pt-16 pb-8">
@@ -21,11 +21,11 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/coders.lk?igsh=eHF1eDY1aDc5NGN6"
                 className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Twitter">
+                aria-label="instagram">
                 
-                <TwitterIcon className="w-5 h-5" />
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
