@@ -42,7 +42,7 @@ export function Footer() {
                 <GithubIcon className="w-5 h-5" />
               </a>
                <a
-                href="#"
+                href="https://www.facebook.com/share/1DrXmteU36/?mibextid=wwXIfr"
                 className="text-slate-400 hover:text-white transition-colors"
                 aria-label="facebook">
                 
