@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { MailIcon, PhoneIcon, SendIcon } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1500);
+
+    // EmailJS configuration - Replace with your actual IDs from EmailJS dashboard
+    // 1. Sign up at https://www.emailjs.com/
+    // 2. Create an email service (Gmail, Outlook, etc.)
+    // 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{company}}, {{message}}
+    // 4. Get your Service ID, Template ID, and Public Key from the dashboard
+    const serviceId = 'your_service_id';
+    const templateId = 'your_template_id';
+    const publicKey = 'your_public_key';
+
+    emailjs.sendForm(serviceId, templateId, form.current!, publicKey)
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 3000);
+      })
+      .catch((error) => {
+        console.error('Email send failed:', error);
+        setIsSubmitting(false);
+        // You can add error handling here, e.g., show an error message
+      });
   };
   return (
     <section
@@ -99,7 +117,7 @@ export function Contact() {
             }}
             className="bg-background-card p-8 rounded-2xl border border-white/5">
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label
