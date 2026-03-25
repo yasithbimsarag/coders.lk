@@ -16,9 +16,9 @@ export function Contact() {
     // 2. Create an email service (Gmail, Outlook, etc.)
     // 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{company}}, {{message}}
     // 4. Get your Service ID, Template ID, and Public Key from the dashboard
-    const serviceId = 'your_service_id';
-    const templateId = 'your_template_id';
-    const publicKey = 'your_public_key';
+    const serviceId = 'service_9nd89xp';
+    const templateId = 'template_f7rqvxe';
+    const publicKey = 'BmtAvL-h66MxYJWVN';
 
     emailjs.sendForm(serviceId, templateId, form.current!, publicKey)
       .then(() => {
