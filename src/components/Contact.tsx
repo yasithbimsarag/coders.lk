@@ -24,12 +24,6 @@ export function Contact() {
       .then(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
-
-        // Clear form fields after successful send
-        if (form.current) {
-          form.current.reset();
-        }
-
         setTimeout(() => setIsSubmitted(false), 3000);
       })
       .catch((error) => {
