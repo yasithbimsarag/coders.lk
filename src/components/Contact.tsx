@@ -1,55 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MailIcon, PhoneIcon, SendIcon } from 'lucide-react';
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS with your Public Key
-// Get this from emailjs.com after creating an account
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your key
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // Replace with your service ID
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your template ID
-
-emailjs.init(EMAILJS_PUBLIC_KEY);
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: 'hello@coders.lk',
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || 'Not provided',
-        message: formData.message,
-      });
-
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', company: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 3000);
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
+    // Simulate API call
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    }, 1500);
   };
   return (
     <section
@@ -148,8 +111,6 @@ export function Contact() {
                   <input
                     type="text"
                     id="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
                     required
                     className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary transition-colors"
                     placeholder="John Doe" />
@@ -165,8 +126,6 @@ export function Contact() {
                   <input
                     type="email"
                     id="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
                     required
                     className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary transition-colors"
                     placeholder="john@company.com" />
@@ -184,8 +143,6 @@ export function Contact() {
                 <input
                   type="text"
                   id="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
                   className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary transition-colors"
                   placeholder="Your Company Ltd." />
                 
@@ -201,8 +158,6 @@ export function Contact() {
                 <textarea
                   id="message"
                   rows={4}
-                  value={formData.message}
-                  onChange={handleInputChange}
                   required
                   className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-accent-primary transition-colors resize-none"
                   placeholder="Tell us about your requirements...">
