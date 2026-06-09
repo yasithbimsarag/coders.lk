@@ -5,11 +5,13 @@ const categories = ['All', 'Websites', 'ERP', 'POS'];
 const projects = [
 {
   id: 1,
-  title: 'FinTech Dashboard',
+  title: 'Techmart.lk',
   category: 'Websites',
   description:
-  'A comprehensive financial analytics dashboard with real-time data visualization.',
-  gradient: 'from-blue-600 to-cyan-600'
+  'Sri Lankan e-commerce platform for smartphones, electronics, accessories, and online shopping.',
+  gradient: 'from-blue-600 to-cyan-600',
+   url: 'https://techmart.lk'
+
 },
 {
   id: 2,
@@ -115,26 +117,30 @@ export function Portfolio() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) =>
-            <motion.div
-              key={project.id}
-              layout
-              initial={{
-                opacity: 0,
-                scale: 0.9
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.9
-              }}
-              transition={{
-                duration: 0.3
-              }}
-              className="group bg-background-card rounded-2xl overflow-hidden border border-white/5 hover:border-accent-primary/30 transition-colors">
+           {filteredProjects.map((project) =>
+  <motion.a
+    key={project.id}
+    layout
+    href={project.url || '#'}
+    target={project.url ? '_blank' : '_self'}
+    rel="noopener noreferrer"
+    initial={{
+      opacity: 0,
+      scale: 0.9
+    }}
+    animate={{
+      opacity: 1,
+      scale: 1
+    }}
+    exit={{
+      opacity: 0,
+      scale: 0.9
+    }}
+    transition={{
+      duration: 0.3
+    }}
+    className="group block bg-background-card rounded-2xl overflow-hidden border border-white/5 hover:border-accent-primary/30 transition-colors"
+  >
               
                 {/* Image Placeholder (Gradient) */}
                 <div
@@ -164,7 +170,7 @@ export function Portfolio() {
                     {project.description}
                   </p>
                 </div>
-              </motion.div>
+              </motion.a>
             )}
           </AnimatePresence>
         </motion.div>
