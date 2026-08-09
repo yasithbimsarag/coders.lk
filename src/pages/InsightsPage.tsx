@@ -1,8 +1,22 @@
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SeoHead from '../components/seo/SeoHead';
-import { insights } from '../data/insights';
+import { insightIntents, insightTopics, insights } from '../data/insights';
 
 export default function InsightsPage() {
+  const [topicFilter, setTopicFilter] = useState<(typeof insightTopics)[number]>('All');
+  const [intentFilter, setIntentFilter] = useState<(typeof insightIntents)[number]>('All');
+
+  const filteredInsights = useMemo(
+    () =>
+      insights.filter((post) => {
+        const topicMatch = topicFilter === 'All' || post.topic === topicFilter;
+        const intentMatch = intentFilter === 'All' || post.intent === intentFilter;
+        return topicMatch && intentMatch;
+      }),
+    [topicFilter, intentFilter],
+  );
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -41,8 +55,38 @@ export default function InsightsPage() {
             Actionable guides on website development, e-commerce, custom software, and conversion-focused strategy to help you rank, convert, and scale.
           </p>
 
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {insightTopics.map((topic) => (
+              <button
+                key={topic}
+                type="button"
+                onClick={() => setTopicFilter(topic)}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                  topicFilter === topic ? 'border-brand bg-blue-50 text-brand' : 'border-slate-200 bg-white text-slate-600 hover:border-brand/40 hover:text-brand'
+                }`}
+              >
+                {topic}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            {insightIntents.map((intent) => (
+              <button
+                key={intent}
+                type="button"
+                onClick={() => setIntentFilter(intent)}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                  intentFilter === intent ? 'border-brand bg-blue-50 text-brand' : 'border-slate-200 bg-white text-slate-600 hover:border-brand/40 hover:text-brand'
+                }`}
+              >
+                {intent}
+              </button>
+            ))}
+          </div>
+
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {insights.map((post) => (
+            {filteredInsights.map((post) => (
               <article key={post.slug} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm">
                 <p className="text-xs uppercase tracking-[0.35em] text-brand/80">{post.keyword}</p>
                 <h2 className="mt-4 text-2xl font-semibold text-slate-950">{post.title}</h2>
@@ -50,6 +94,10 @@ export default function InsightsPage() {
                 <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
                   <span>{post.readTime}</span>
                   <span>{post.publishedAt}</span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-600">{post.topic}</span>
+                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-slate-600">{post.intent}</span>
                 </div>
                 <Link to={`/insights/${post.slug}`} className="mt-6 inline-flex items-center text-sm font-semibold text-brand hover:text-blue-600">
                   Read Article

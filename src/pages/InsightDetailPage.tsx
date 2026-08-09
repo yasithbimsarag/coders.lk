@@ -12,25 +12,60 @@ export default function InsightDetailPage() {
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
+    '@graph': [
       {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://coders.lk/',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://coders.lk/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Insights',
+            item: 'https://coders.lk/insights',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: post.title,
+            item: `https://coders.lk/insights/${post.slug}`,
+          },
+        ],
       },
       {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Insights',
-        item: 'https://coders.lk/insights',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.description,
+        datePublished: post.publishedAt,
+        dateModified: post.publishedAt,
+        author: {
+          '@type': 'Organization',
+          name: 'Coders.lk',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Coders.lk',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://coders.lk/coders_logo.png',
+          },
+        },
+        mainEntityOfPage: `https://coders.lk/insights/${post.slug}`,
       },
       {
-        '@type': 'ListItem',
-        position: 3,
-        name: post.title,
-        item: `https://coders.lk/insights/${post.slug}`,
+        '@type': 'FAQPage',
+        mainEntity: post.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
       },
     ],
   };
@@ -68,6 +103,18 @@ export default function InsightDetailPage() {
               </section>
             ))}
           </div>
+
+          <section className="mt-12 rounded-[24px] border border-slate-200 bg-white p-7">
+            <h2 className="text-2xl font-semibold text-slate-950">Frequently asked questions</h2>
+            <div className="mt-6 space-y-5">
+              {post.faqs.map((faq) => (
+                <article key={faq.question}>
+                  <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
+                  <p className="mt-2 leading-7 text-slate-600">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
           <div className="mt-12 rounded-[24px] border border-slate-200 bg-white p-7">
             <h2 className="text-2xl font-semibold text-slate-950">Need a practical plan for your business?</h2>
