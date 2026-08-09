@@ -100,6 +100,146 @@ export const insights: InsightPost[] = [
     ctaLabel: 'Discuss custom software',
     ctaPath: '/services/custom-software',
   },
+  {
+    slug: 'ui-ux-design-sri-lanka-conversion-mistakes',
+    title: 'UI UX Design in Sri Lanka: 9 Conversion Mistakes Most Sites Make',
+    description:
+      'Learn the most common UI UX mistakes that reduce conversion rates and how Sri Lankan businesses can fix them to improve lead and sales performance.',
+    keyword: 'ui ux design sri lanka',
+    publishedAt: '2026-08-10',
+    readTime: '6 min read',
+    sections: [
+      {
+        heading: 'Poor hierarchy and unclear CTA flow',
+        body:
+          'When visual hierarchy is weak, users struggle to decide where to click. Strong UI UX design in Sri Lanka should prioritize one clear goal per screen with supportive secondary actions.',
+      },
+      {
+        heading: 'Heavy layouts and slow interaction feedback',
+        body:
+          'Slow pages and delayed feedback reduce trust quickly. Optimize assets, simplify interactions, and make action states clear to protect conversion intent.',
+      },
+      {
+        heading: 'No user journey validation before launch',
+        body:
+          'Use real user scenarios before publishing. Validate form flows, mobile navigation, and checkout paths to reduce drop-offs and increase qualified conversions.',
+      },
+    ],
+    ctaLabel: 'Request a UX audit',
+    ctaPath: '/services/ui-ux-design',
+  },
+  {
+    slug: 'software-company-sri-lanka-selection-framework',
+    title: 'How to Choose a Software Company in Sri Lanka: A Decision Framework',
+    description:
+      'A practical framework to evaluate software partners in Sri Lanka based on delivery process, technical quality, communication, and business outcomes.',
+    keyword: 'software company sri lanka',
+    publishedAt: '2026-08-10',
+    readTime: '7 min read',
+    sections: [
+      {
+        heading: 'Evaluate process, not portfolio alone',
+        body:
+          'A polished portfolio is not enough. Assess discovery quality, technical planning, QA rigor, and post-launch support. Reliable teams can explain trade-offs clearly.',
+      },
+      {
+        heading: 'Look for business-aligned delivery metrics',
+        body:
+          'The right software company in Sri Lanka should discuss performance metrics, conversion outcomes, and operational efficiency rather than design trends alone.',
+      },
+      {
+        heading: 'Use a weighted scorecard before final selection',
+        body:
+          'Score vendors on communication speed, architecture quality, SEO readiness, scalability, and total ownership cost. This reduces emotional decision bias.',
+      },
+    ],
+    ctaLabel: 'Start a discovery call',
+    ctaPath: '/contact',
+  },
+  {
+    slug: 'website-development-sri-lanka-seo-architecture',
+    title: 'Website Development in Sri Lanka: SEO Architecture That Ranks',
+    description:
+      'Build websites with technical SEO foundations such as clean routing, schema, internal linking, and performance-focused structure for better rankings.',
+    keyword: 'website development sri lanka',
+    publishedAt: '2026-08-10',
+    readTime: '8 min read',
+    sections: [
+      {
+        heading: 'Build crawlable, indexable site structure first',
+        body:
+          'Create predictable URL hierarchy, canonical consistency, and robust internal linking. Architecture errors cause ranking loss even with good content.',
+      },
+      {
+        heading: 'Align page templates with search intent',
+        body:
+          'Use intent-focused templates for services, case studies, and insights. Each template should include unique metadata, one H1, and clear conversion actions.',
+      },
+      {
+        heading: 'Pair architecture with speed and UX',
+        body:
+          'SEO architecture works best when combined with fast rendering, image optimization, and frictionless navigation across mobile and desktop.',
+      },
+    ],
+    ctaLabel: 'Get technical SEO audit',
+    ctaPath: '/services/seo-digital-growth',
+  },
+  {
+    slug: 'erp-pos-systems-sri-lanka-buy-vs-build',
+    title: 'ERP and POS Systems in Sri Lanka: Buy vs Build Guide',
+    description:
+      'Compare off-the-shelf ERP/POS tools with custom-built systems to choose the right operational model for your business stage and complexity.',
+    keyword: 'erp pos systems sri lanka',
+    publishedAt: '2026-08-10',
+    readTime: '6 min read',
+    sections: [
+      {
+        heading: 'When buying off-the-shelf works best',
+        body:
+          'If operations are standard and implementation speed matters most, prebuilt ERP/POS tools can be effective in the short term.',
+      },
+      {
+        heading: 'When custom ERP/POS is better',
+        body:
+          'Custom systems are stronger when branch workflows, approvals, and reporting logic are unique to your organization.',
+      },
+      {
+        heading: 'Decision criteria for long-term ROI',
+        body:
+          'Assess integration depth, reporting requirements, user adoption complexity, and long-term licensing cost before finalizing build-vs-buy strategy.',
+      },
+    ],
+    ctaLabel: 'Get ERP consultation',
+    ctaPath: '/services/erp-pos-systems',
+  },
+  {
+    slug: 'digital-solutions-sri-lanka-for-smbs',
+    title: 'Digital Solutions in Sri Lanka for SMEs: What to Prioritize First',
+    description:
+      'A priority roadmap for SMEs to choose the right digital investments across websites, e-commerce, software automation, and growth channels.',
+    keyword: 'digital solutions sri lanka',
+    publishedAt: '2026-08-10',
+    readTime: '5 min read',
+    sections: [
+      {
+        heading: 'Start with revenue-linked priorities',
+        body:
+          'Focus first on assets that directly impact leads or sales: high-converting website pages, clear inquiry funnels, and measurable tracking.',
+      },
+      {
+        heading: 'Then automate recurring operational pain points',
+        body:
+          'Move next to software automations for inventory, order handling, and reporting where manual errors are expensive and repetitive.',
+      },
+      {
+        heading: 'Build a 90-day improvement cycle',
+        body:
+          'Use short execution cycles with KPI reviews each month. Digital solutions in Sri Lanka perform best when investment and iteration are continuous.',
+      },
+    ],
+    ctaLabel: 'Plan my growth roadmap',
+    ctaPath: '/contact',
+  },
 ];
 
 export const insightMap = Object.fromEntries(insights.map((post) => [post.slug, post]));
