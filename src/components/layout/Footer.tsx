@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  const handleInternalNavigate = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="border-t border-slate-200 bg-surface py-16 text-sm text-slate-600">
       <div className="mx-auto grid max-w-[1320px] gap-12 px-6 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:px-8">
@@ -18,24 +22,24 @@ export default function Footer() {
         <div className="space-y-4">
           <p className="font-semibold text-slate-950">Navigation</p>
           <div className="space-y-3">
-            <Link to="/" className="block hover:text-brand">Home</Link>
-            <Link to="/services" className="block hover:text-brand">Services</Link>
-            <Link to="/projects" className="block hover:text-brand">Our Work</Link>
-            <Link to="/about" className="block hover:text-brand">About Us</Link>
-            <Link to="/contact" className="block hover:text-brand">Contact</Link>
+            <Link to="/" onClick={handleInternalNavigate} className="block hover:text-brand">Home</Link>
+            <Link to="/services" onClick={handleInternalNavigate} className="block hover:text-brand">Services</Link>
+            <Link to="/projects" onClick={handleInternalNavigate} className="block hover:text-brand">Our Work</Link>
+            <Link to="/about" onClick={handleInternalNavigate} className="block hover:text-brand">About Us</Link>
+            <Link to="/contact" onClick={handleInternalNavigate} className="block hover:text-brand">Contact</Link>
           </div>
         </div>
 
         <div className="space-y-4">
           <p className="font-semibold text-slate-950">Services</p>
           <div className="space-y-3">
-            <Link to="/services/website-development" className="block hover:text-brand">Website Development</Link>
-            <Link to="/services/ecommerce-solutions" className="block hover:text-brand">E-Commerce Solutions</Link>
-            <Link to="/services/custom-software" className="block hover:text-brand">Custom Software</Link>
-            <Link to="/services/erp-pos-systems" className="block hover:text-brand">ERP & POS Systems</Link>
-            <Link to="/services/ui-ux-design" className="block hover:text-brand">UI/UX Design</Link>
-            <Link to="/services/seo-digital-growth" className="block hover:text-brand">SEO & Digital Growth</Link>
-            <Link to="/services/social-media-marketing" className="block hover:text-brand">Social Media Marketing</Link>
+            <Link to="/services/website-development" onClick={handleInternalNavigate} className="block hover:text-brand">Website Development</Link>
+            <Link to="/services/ecommerce-solutions" onClick={handleInternalNavigate} className="block hover:text-brand">E-Commerce Solutions</Link>
+            <Link to="/services/custom-software" onClick={handleInternalNavigate} className="block hover:text-brand">Custom Software</Link>
+            <Link to="/services/erp-pos-systems" onClick={handleInternalNavigate} className="block hover:text-brand">ERP & POS Systems</Link>
+            <Link to="/services/ui-ux-design" onClick={handleInternalNavigate} className="block hover:text-brand">UI/UX Design</Link>
+            <Link to="/services/seo-digital-growth" onClick={handleInternalNavigate} className="block hover:text-brand">SEO & Digital Growth</Link>
+            <Link to="/services/social-media-marketing" onClick={handleInternalNavigate} className="block hover:text-brand">Social Media Marketing</Link>
           </div>
         </div>
 
