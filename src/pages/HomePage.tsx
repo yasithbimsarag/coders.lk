@@ -25,6 +25,35 @@ export default function HomePage() {
           'Digital Solutions Sri Lanka',
         ],
       },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Which is the best web development company in Sri Lanka for business websites?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Coders.lk helps Sri Lankan businesses launch fast, SEO-ready websites with modern UI, strong conversion flows, and scalable architecture.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Do you provide e-commerce website development in Sri Lanka?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. We build e-commerce websites with product catalogs, payment integration, order management, and analytics for growth-focused brands.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Can you build custom software for our company workflow?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. Our custom software development process starts with workflow mapping, then we build secure systems for operations, reporting, and automation.',
+            },
+          },
+        ],
+      },
     ],
   };
 

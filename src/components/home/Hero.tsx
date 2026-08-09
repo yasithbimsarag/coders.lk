@@ -13,10 +13,10 @@ export default function Hero() {
           <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.3em] text-brand/90">Premium digital solutions for serious businesses</p>
             <h1 className="max-w-3xl text-5xl font-semibold leading-tight text-slate-950 sm:text-6xl xl:text-7xl">
-              We build <span className="text-brand">digital products</span> that move businesses forward.
+              Leading <span className="text-brand">web development company in Sri Lanka</span> for ambitious brands.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-              Coders.lk designs and develops high-performance websites, e-commerce platforms and custom software built for real businesses.
+              Coders.lk delivers website development in Sri Lanka, e-commerce website development, custom software development, UI UX design, and digital solutions built for measurable business growth.
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
