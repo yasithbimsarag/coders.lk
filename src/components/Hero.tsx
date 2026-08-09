@@ -35,7 +35,7 @@ export function Hero() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-primary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent-secondary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-primary/10 rounded-full mix-blend-screen filter blur-[120px]"></div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.12),transparent_40%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.1),transparent_45%)]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">

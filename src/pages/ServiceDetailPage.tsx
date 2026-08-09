@@ -10,9 +10,41 @@ export default function ServiceDetailPage() {
     return <Navigate to="/services" replace />;
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://coders.lk/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://coders.lk/services',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: service.heading,
+        item: `https://coders.lk/services/${service.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
-      <SeoHead title={service.title} description={service.metaDescription} canonicalPath={`/services/${service.slug}`} />
+      <SeoHead
+        title={service.title}
+        description={service.metaDescription}
+        canonicalPath={`/services/${service.slug}`}
+        ogImage="https://coders.lk/coders_logo.png"
+        ogImageAlt={`${service.heading} by Coders.lk`}
+        schema={breadcrumbSchema}
+      />
       <main className="bg-background py-20">
         <section className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Service</p>

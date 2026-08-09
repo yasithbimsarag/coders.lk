@@ -35,7 +35,13 @@ export default function ProjectCard({ number, category, name, description, tags,
       </div>
       <div className="relative overflow-hidden border-t border-slate-200 bg-slate-50 p-6">
         <div className="relative overflow-hidden rounded-[24px] border border-slate-200 bg-surface">
-          <img src={image} alt={name} className="h-[300px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[320px]" />
+          <img
+            src={image}
+            alt={`${name} project preview by Coders.lk`}
+            loading="lazy"
+            decoding="async"
+            className="h-[300px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[320px]"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-200/40 via-transparent to-transparent" />
         </div>
         <Link to={routePath} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:text-blue-600">

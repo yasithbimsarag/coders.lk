@@ -4,9 +4,24 @@ interface SeoHeadProps {
   title: string;
   description: string;
   canonicalPath: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-export default function SeoHead({ title, description, canonicalPath }: SeoHeadProps) {
+const DEFAULT_OG_IMAGE = 'https://coders.lk/coders_logo.png';
+const DEFAULT_OG_IMAGE_ALT = 'Coders.lk logo and brand identity';
+
+export default function SeoHead({
+  title,
+  description,
+  canonicalPath,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogImageAlt = DEFAULT_OG_IMAGE_ALT,
+  twitterCard = 'summary_large_image',
+  schema,
+}: SeoHeadProps) {
   useEffect(() => {
     document.title = title;
 
@@ -33,11 +48,26 @@ export default function SeoHead({ title, description, canonicalPath }: SeoHeadPr
     const descriptionMeta = ensureMeta('description');
     descriptionMeta.setAttribute('content', description);
 
+    const robotsMeta = ensureMeta('robots');
+    robotsMeta.setAttribute('content', 'index, follow, max-image-preview:large');
+
     const ogTitle = ensurePropertyMeta('og:title');
     ogTitle.setAttribute('content', title);
 
     const ogDescription = ensurePropertyMeta('og:description');
     ogDescription.setAttribute('content', description);
+
+    const ogType = ensurePropertyMeta('og:type');
+    ogType.setAttribute('content', 'website');
+
+    const ogSiteName = ensurePropertyMeta('og:site_name');
+    ogSiteName.setAttribute('content', 'Coders.lk');
+
+    const ogImageMeta = ensurePropertyMeta('og:image');
+    ogImageMeta.setAttribute('content', ogImage);
+
+    const ogImageAltMeta = ensurePropertyMeta('og:image:alt');
+    ogImageAltMeta.setAttribute('content', ogImageAlt);
 
     const canonicalHref = `https://coders.lk${canonicalPath}`;
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -50,7 +80,35 @@ export default function SeoHead({ title, description, canonicalPath }: SeoHeadPr
 
     const ogUrl = ensurePropertyMeta('og:url');
     ogUrl.setAttribute('content', canonicalHref);
-  }, [title, description, canonicalPath]);
+
+    const twitterCardMeta = ensureMeta('twitter:card');
+    twitterCardMeta.setAttribute('content', twitterCard);
+
+    const twitterTitleMeta = ensureMeta('twitter:title');
+    twitterTitleMeta.setAttribute('content', title);
+
+    const twitterDescriptionMeta = ensureMeta('twitter:description');
+    twitterDescriptionMeta.setAttribute('content', description);
+
+    const twitterImageMeta = ensureMeta('twitter:image');
+    twitterImageMeta.setAttribute('content', ogImage);
+
+    const twitterUrlMeta = ensureMeta('twitter:url');
+    twitterUrlMeta.setAttribute('content', canonicalHref);
+
+    const existingSchema = document.querySelector('script[data-seo-schema="page"]');
+    if (existingSchema) {
+      existingSchema.remove();
+    }
+
+    if (schema) {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-schema', 'page');
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    }
+  }, [title, description, canonicalPath, ogImage, ogImageAlt, twitterCard, schema]);
 
   return null;
 }

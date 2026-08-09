@@ -147,7 +147,7 @@ export function Portfolio() {
                 className={`h-48 w-full bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                 
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
-                  <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.1),transparent_38%),radial-gradient(circle_at_75%_80%,rgba(255,255,255,0.08),transparent_42%)]"></div>
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">

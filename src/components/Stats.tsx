@@ -63,7 +63,7 @@ const stats = [
 export function Stats() {
   return (
     <section className="py-20 bg-background relative border-y border-white/5">
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+      <div className="absolute inset-0 opacity-10 mix-blend-overlay [background-image:radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.12),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(255,255,255,0.1),transparent_48%)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x-0 md:divide-x divide-white/10">
           {stats.map((stat, index) =>

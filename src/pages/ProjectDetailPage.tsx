@@ -11,10 +11,41 @@ export default function ProjectDetailPage() {
   }
 
   const metaDescription = `${project.name} by Coders.lk: ${project.description}`;
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://coders.lk/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Projects',
+        item: 'https://coders.lk/projects',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: project.name,
+        item: `https://coders.lk/projects/${project.id}`,
+      },
+    ],
+  };
 
   return (
     <>
-      <SeoHead title={`${project.name} Project | Coders.lk`} description={metaDescription} canonicalPath={`/projects/${project.id}`} />
+      <SeoHead
+        title={`${project.name} Project | Coders.lk`}
+        description={metaDescription}
+        canonicalPath={`/projects/${project.id}`}
+        ogImage={`https://coders.lk${project.image}`}
+        ogImageAlt={`${project.name} project screenshot by Coders.lk`}
+        schema={breadcrumbSchema}
+      />
       <main className="bg-background py-20">
         <section className="mx-auto max-w-[1320px] px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Project Case Study</p>
@@ -23,7 +54,13 @@ export default function ProjectDetailPage() {
           <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-600">{project.description}</p>
 
           <div className="mt-10 overflow-hidden rounded-[30px] border border-slate-200 bg-surface">
-            <img src={project.image} alt={project.name} className="h-[320px] w-full object-cover sm:h-[460px]" />
+            <img
+              src={project.image}
+              alt={`${project.name} project preview for ${project.category} by Coders.lk`}
+              loading="eager"
+              decoding="async"
+              className="h-[320px] w-full object-cover sm:h-[460px]"
+            />
           </div>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
