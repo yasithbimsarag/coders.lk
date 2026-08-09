@@ -45,6 +45,40 @@ function checkRateLimit(ip) {
   return true;
 }
 
+async function sendViaFormSubmit({
+  name,
+  email,
+  phone,
+  company,
+  service,
+  message,
+}) {
+  const fallback = new FormData();
+  fallback.append('name', name);
+  fallback.append('email', email);
+  fallback.append('phone', phone || 'Not provided');
+  fallback.append('company', company || 'Not provided');
+  fallback.append('service', service || 'Not provided');
+  fallback.append('message', message);
+  fallback.append('_subject', `New Contact Request - Coders.lk - ${name}`);
+  fallback.append('_template', 'table');
+  fallback.append('_captcha', 'false');
+  fallback.append('_cc', 'abdullahfwzath123@gmail.com,yasithbimsara723@gmail.com,ayanawickramarathna22@gmail.com');
+
+  const response = await fetch('https://formsubmit.co/ajax/hello@coders.lk', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+    },
+    body: fallback,
+  });
+
+  if (!response.ok) {
+    const fallbackBody = await response.text();
+    throw new Error(`Fallback provider failed (${response.status}): ${fallbackBody.slice(0, 300)}`);
+  }
+}
+
 export default async function handler(req, res) {
   setCorsHeaders(res);
 
@@ -95,7 +129,20 @@ export default async function handler(req, res) {
   const fromEmail = process.env.CONTACT_FROM_EMAIL ?? 'website@coders.lk';
 
   if (!apiKey) {
-    return res.status(500).json({ success: false, message: 'Email service not configured on server.' });
+    try {
+      await sendViaFormSubmit({
+        name: cleanName,
+        email: cleanEmail,
+        phone: cleanPhone,
+        company: cleanCompany,
+        service: cleanService,
+        message: cleanMessage,
+      });
+      return res.status(200).json({ success: true, provider: 'formsubmit-fallback' });
+    } catch (fallbackError) {
+      const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : 'Fallback email provider failed';
+      return res.status(500).json({ success: false, message: fallbackMessage });
+    }
   }
 
   try {
@@ -139,7 +186,20 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to send message';
-    return res.status(500).json({ success: false, message });
+    try {
+      await sendViaFormSubmit({
+        name: cleanName,
+        email: cleanEmail,
+        phone: cleanPhone,
+        company: cleanCompany,
+        service: cleanService,
+        message: cleanMessage,
+      });
+      return res.status(200).json({ success: true, provider: 'formsubmit-fallback' });
+    } catch (fallbackError) {
+      const resendMessage = error instanceof Error ? error.message : 'Failed to send message via primary provider';
+      const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : 'Fallback email provider failed';
+      return res.status(500).json({ success: false, message: `${resendMessage} | ${fallbackMessage}` });
+    }
   }
 }
