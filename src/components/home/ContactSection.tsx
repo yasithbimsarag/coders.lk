@@ -21,6 +21,33 @@ export default function ContactSection() {
     }
   };
 
+  const submitToFormSubmitDirect = async (payload: Record<string, string>) => {
+    const fallback = new FormData();
+    fallback.append('name', payload.name);
+    fallback.append('email', payload.email);
+    fallback.append('phone', payload.phone || 'Not provided');
+    fallback.append('company', payload.company || 'Not provided');
+    fallback.append('service', payload.service || 'Not provided');
+    fallback.append('message', payload.message);
+    fallback.append('_subject', `New Contact Request - Coders.lk - ${payload.name}`);
+    fallback.append('_template', 'table');
+    fallback.append('_captcha', 'false');
+    fallback.append('_cc', 'abdullahfwzath123@gmail.com,yasithbimsara723@gmail.com,ayanawickramarathna22@gmail.com');
+
+    const response = await fetch('https://formsubmit.co/ajax/hello@coders.lk', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: fallback,
+    });
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok) {
+      throw new Error(data?.message || `Fallback provider failed (${response.status})`);
+    }
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -43,8 +70,13 @@ export default function ContactSection() {
       try {
         await submitToEndpoint('/api/contact', payload);
       } catch {
-        // Legacy endpoint fallback for environments still wired to contact-submit.php.
-        await submitToEndpoint('/contact-submit.php', payload);
+        try {
+          // Legacy endpoint fallback for environments still wired to contact-submit.php.
+          await submitToEndpoint('/contact-submit.php', payload);
+        } catch {
+          // Last-resort direct provider call.
+          await submitToFormSubmitDirect(payload);
+        }
       }
 
       form.reset();
