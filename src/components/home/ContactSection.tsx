@@ -4,27 +4,20 @@ export default function ContactSection() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('Message could not be sent now. Please try again in a moment.');
 
-  const submitViaFormSubmit = async (payload: { name: string; email: string; message: string }) => {
-    const fallback = new FormData();
-    fallback.append('name', payload.name);
-    fallback.append('email', payload.email);
-    fallback.append('message', payload.message);
-    fallback.append('_subject', `New Contact Form Message - ${payload.name}`);
-    fallback.append('_template', 'table');
-    fallback.append('_captcha', 'false');
-    fallback.append('_cc', 'abdullahfwzath123@gmail.com,yasithbimsara723@gmail.com,ayanawickramarathna22@gmail.com');
-
-    const response = await fetch('https://formsubmit.co/ajax/hello@coders.lk', {
+  const submitToEndpoint = async (endpoint: string, payload: Record<string, string>) => {
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      body: fallback,
+      body: JSON.stringify(payload),
     });
 
-    if (!response.ok) {
-      const data = await response.json().catch(() => null);
-      throw new Error(data?.message || `Fallback request failed (${response.status})`);
+    const data = await response.json().catch(() => null);
+
+    if (!response.ok || data?.success === false) {
+      const apiMessage = data?.message || `Request failed (${response.status})`;
+      throw new Error(apiMessage);
     }
   };
 
@@ -47,34 +40,20 @@ export default function ContactSection() {
     setErrorMessage('Message could not be sent now. Please try again in a moment.');
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const data = await response.json().catch(() => null);
-        const apiMessage = data?.message || `Request failed (${response.status})`;
-
-        // Try provider fallback for any API failure.
-        try {
-          await submitViaFormSubmit(payload);
-          form.reset();
-          setStatus('sent');
-          return;
-        } catch (fallbackError) {
-          const fallbackMessage = fallbackError instanceof Error ? fallbackError.message : 'Fallback failed';
-          throw new Error(`${apiMessage} | ${fallbackMessage}`);
-        }
+      try {
+        await submitToEndpoint('/api/contact', payload);
+      } catch {
+        // Legacy endpoint fallback for environments still wired to contact-submit.php.
+        await submitToEndpoint('/contact-submit.php', payload);
       }
 
       form.reset();
       setStatus('sent');
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'Message could not be sent now. Please try again in a moment.';
+      const message =
+        error instanceof Error
+          ? `${error.message}. You can also email us directly at hello@coders.lk.`
+          : 'Message could not be sent now. Please try again in a moment.';
       setErrorMessage(message);
       setStatus('error');
     }
