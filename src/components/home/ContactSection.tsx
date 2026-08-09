@@ -52,7 +52,7 @@ export default function ContactSection() {
     } catch (error) {
       const message =
         error instanceof Error
-          ? `${error.message}. You can also email us directly at hello@coders.lk.`
+          ? `${error.message.replace(/[.\s]+$/, '')}. You can also email us directly at hello@coders.lk.`
           : 'Message could not be sent now. Please try again in a moment.';
       setErrorMessage(message);
       setStatus('error');
