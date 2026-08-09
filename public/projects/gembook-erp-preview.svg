@@ -1,0 +1,29 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07101D" />
+      <stop offset="1" stop-color="#152740" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="40" fill="url(#bg)" />
+  <rect x="80" y="80" width="1040" height="600" rx="32" fill="#0F172A" stroke="#1F2937" stroke-width="2" />
+  <rect x="120" y="120" width="960" height="180" rx="28" fill="#142A4C" />
+  <rect x="120" y="340" width="340" height="240" rx="28" fill="#11203A" />
+  <rect x="500" y="320" width="260" height="220" rx="28" fill="#0F172A" />
+  <rect x="820" y="320" width="260" height="220" rx="28" fill="#142A4C" />
+  <rect x="160" y="170" width="200" height="16" rx="8" fill="#2563EB" />
+  <rect x="160" y="210" width="280" height="14" rx="7" fill="#94A3B8" />
+  <rect x="160" y="245" width="230" height="14" rx="7" fill="#94A3B8" />
+  <rect x="540" y="170" width="180" height="18" rx="9" fill="#2563EB" />
+  <rect x="540" y="210" width="220" height="14" rx="7" fill="#94A3B8" />
+  <rect x="540" y="245" width="240" height="14" rx="7" fill="#94A3B8" />
+  <rect x="160" y="380" width="280" height="18" rx="9" fill="#2563EB" />
+  <rect x="160" y="420" width="200" height="14" rx="7" fill="#94A3B8" />
+  <rect x="160" y="455" width="220" height="14" rx="7" fill="#94A3B8" />
+  <rect x="520" y="380" width="220" height="14" rx="7" fill="#94A3B8" />
+  <rect x="520" y="420" width="260" height="14" rx="7" fill="#94A3B8" />
+  <rect x="840" y="380" width="180" height="14" rx="7" fill="#94A3B8" />
+  <rect x="840" y="420" width="220" height="14" rx="7" fill="#94A3B8" />
+  <text x="100" y="720" fill="#E2E8F0" font-family="Manrope, sans-serif" font-size="42" font-weight="700">GemBook ERP</text>
+  <text x="100" y="770" fill="#94A3B8" font-family="Inter, sans-serif" font-size="24">Enterprise ERP System</text>
+</svg>
