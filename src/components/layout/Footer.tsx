@@ -25,6 +25,7 @@ export default function Footer() {
             <Link to="/" onClick={handleInternalNavigate} className="block hover:text-brand">Home</Link>
             <Link to="/services" onClick={handleInternalNavigate} className="block hover:text-brand">Services</Link>
             <Link to="/projects" onClick={handleInternalNavigate} className="block hover:text-brand">Our Work</Link>
+            <Link to="/insights" onClick={handleInternalNavigate} className="block hover:text-brand">Insights</Link>
             <Link to="/about" onClick={handleInternalNavigate} className="block hover:text-brand">About Us</Link>
             <Link to="/contact" onClick={handleInternalNavigate} className="block hover:text-brand">Contact</Link>
           </div>
