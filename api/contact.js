@@ -82,8 +82,8 @@ export default async function handler(req, res) {
   const cleanService = sanitize(service, 120);
   const cleanMessage = sanitize(message, 5000);
 
-  if (!cleanName || !cleanEmail || !cleanPhone || !cleanCompany || !cleanService || !cleanMessage) {
-    return res.status(400).json({ success: false, message: 'Please fill all required fields.' });
+  if (!cleanName || !cleanEmail || !cleanMessage) {
+    return res.status(400).json({ success: false, message: 'Please fill name, email and message.' });
   }
 
   if (!isValidEmail(cleanEmail)) {
@@ -111,14 +111,14 @@ export default async function handler(req, res) {
       ],
       replyTo: cleanEmail,
       subject: `New Contact Request - Coders.lk`,
-      text: `New Contact Request - Coders.lk\n\nName: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone}\nCompany: ${cleanCompany}\nService: ${cleanService}\n\nMessage:\n${cleanMessage}`,
+      text: `New Contact Request - Coders.lk\n\nName: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone || 'Not provided'}\nCompany: ${cleanCompany || 'Not provided'}\nService: ${cleanService || 'Not provided'}\n\nMessage:\n${cleanMessage}`,
       html: `
         <h2>New Contact Request - Coders.lk</h2>
         <p><strong>Name:</strong> ${cleanName}</p>
         <p><strong>Email:</strong> ${cleanEmail}</p>
-        <p><strong>Phone:</strong> ${cleanPhone}</p>
-        <p><strong>Company:</strong> ${cleanCompany}</p>
-        <p><strong>Service:</strong> ${cleanService}</p>
+        <p><strong>Phone:</strong> ${cleanPhone || 'Not provided'}</p>
+        <p><strong>Company:</strong> ${cleanCompany || 'Not provided'}</p>
+        <p><strong>Service:</strong> ${cleanService || 'Not provided'}</p>
         <p><strong>Message:</strong></p>
         <p>${cleanMessage.replace(/\n/g, '<br/>')}</p>
       `,

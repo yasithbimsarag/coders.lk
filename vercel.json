@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/contact-submit.php",
+      "destination": "/api/contact"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
