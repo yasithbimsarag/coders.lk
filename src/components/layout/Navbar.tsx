@@ -32,10 +32,10 @@ export default function Navbar() {
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-500 ${isDark ? 'backdrop-blur-xl bg-slate-950/95' : 'backdrop-blur-xl bg-white/95 shadow-sm border-b border-slate-200'} `}>
-      <div className="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4 lg:px-8">
-        <Link to="/" className={`flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.35em] ${brandColor}`}>
-          <img src="/coders_logo.png" alt="Coders.lk logo" className="h-10 w-10 rounded-2xl object-cover shadow-glow" />
-          <span>Coders.lk</span>
+      <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
+        <Link to="/" className={`flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] min-[390px]:gap-2.5 min-[390px]:text-[11px] min-[390px]:tracking-[0.24em] sm:text-sm sm:tracking-[0.35em] ${brandColor}`}>
+          <img src="/coders_logo.png" alt="Coders.lk logo" className="h-9 w-9 rounded-2xl object-cover shadow-glow sm:h-10 sm:w-10" />
+          <span className="hidden min-[350px]:inline">Coders.lk</span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -52,14 +52,14 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button className={mobileButtonClass} onClick={() => setOpen(!open)} aria-label="Toggle navigation">
+        <button className={mobileButtonClass} onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
 
       {open ? (
         <motion.div initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} className={`${mobileMenuBg} lg:hidden`}>
-          <div className="mx-auto flex max-w-[1320px] flex-col gap-3 px-6 py-6">
+          <div className="mx-auto flex max-w-[1320px] flex-col gap-3 px-4 py-5 sm:px-6 sm:py-6">
             {navLinks.map((link) => (
               <NavLink key={link.href} to={link.href} className={mobileLinkClass} onClick={() => setOpen(false)}>
                 {link.label}

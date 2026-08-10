@@ -46,12 +46,12 @@ export default function InsightsPage() {
         ogImageAlt="Coders.lk SEO and digital growth insights"
         schema={schema}
       />
-      <main className="bg-background py-20">
-        <section className="mx-auto max-w-[1320px] px-6 lg:px-8">
-          <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+      <main className="bg-background py-16 sm:py-20">
+        <section className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
+          <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-slate-950 sm:text-5xl">
             SEO and digital growth insights for Sri Lankan businesses
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Actionable guides on website development, e-commerce, custom software, and conversion-focused strategy to help you rank, convert, and scale.
           </p>
 
@@ -61,7 +61,7 @@ export default function InsightsPage() {
                 key={topic}
                 type="button"
                 onClick={() => setTopicFilter(topic)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition sm:px-4 sm:py-2 sm:text-sm ${
                   topicFilter === topic ? 'border-brand bg-blue-50 text-brand' : 'border-slate-200 bg-white text-slate-600 hover:border-brand/40 hover:text-brand'
                 }`}
               >
@@ -76,7 +76,7 @@ export default function InsightsPage() {
                 key={intent}
                 type="button"
                 onClick={() => setIntentFilter(intent)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition sm:px-4 sm:py-2 sm:text-sm ${
                   intentFilter === intent ? 'border-brand bg-blue-50 text-brand' : 'border-slate-200 bg-white text-slate-600 hover:border-brand/40 hover:text-brand'
                 }`}
               >
@@ -85,13 +85,13 @@ export default function InsightsPage() {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredInsights.map((post) => (
-              <article key={post.slug} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.35em] text-brand/80">{post.keyword}</p>
-                <h2 className="mt-4 text-2xl font-semibold text-slate-950">{post.title}</h2>
+              <article key={post.slug} className="flex h-full flex-col rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-brand/80 sm:text-xs sm:tracking-[0.35em]">{post.keyword}</p>
+                <h2 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{post.title}</h2>
                 <p className="mt-4 flex-1 leading-7 text-slate-600">{post.description}</p>
-                <div className="mt-6 flex items-center justify-between text-sm text-slate-500">
+                <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
                   <span>{post.readTime}</span>
                   <span>{post.publishedAt}</span>
                 </div>

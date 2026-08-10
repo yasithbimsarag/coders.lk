@@ -48,28 +48,28 @@ export default function HeroVisual() {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
     >
-      <div className="relative overflow-hidden rounded-[32px] border border-slate-800/60 bg-slate-950/95 p-5 shadow-[0_40px_120px_rgba(30,58,138,0.28)]">
-        <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.08),_transparent_40%)]" />
-        <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-slate-950/70 via-slate-950/30 to-transparent" />
-        <div className="relative flex min-h-[440px] items-center justify-center overflow-hidden rounded-[28px]">
+      <div className="relative overflow-hidden rounded-[26px] border border-slate-800/60 bg-slate-950/95 p-3 shadow-[0_40px_120px_rgba(30,58,138,0.28)] sm:rounded-[32px] sm:p-5">
+        <div className="pointer-events-none absolute inset-0 rounded-[26px] bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.08),_transparent_40%)] sm:rounded-[32px]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[26px] bg-gradient-to-br from-slate-950/70 via-slate-950/30 to-transparent sm:rounded-[32px]" />
+        <div className="relative flex min-h-[320px] items-center justify-center overflow-hidden rounded-[22px] sm:min-h-[440px] sm:rounded-[28px]">
           <motion.div
-            className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/10 bg-[radial-gradient(circle,_rgba(56,189,248,0.06),_transparent_55%)] blur-2xl"
+            className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/10 bg-[radial-gradient(circle,_rgba(56,189,248,0.06),_transparent_55%)] blur-2xl sm:h-[420px] sm:w-[420px]"
             animate={reduceMotion ? { opacity: 0.55 } : { opacity: [0.45, 0.72, 0.45], scale: [0.97, 1.03, 0.97] }}
             transition={{ duration: reduceMotion ? 0 : 7, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
           />
 
           <motion.div
-            className="absolute left-1/2 top-1/2 h-[356px] w-[356px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/20"
+            className="absolute left-1/2 top-1/2 h-[238px] w-[238px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-300/20 sm:h-[356px] sm:w-[356px]"
             animate={reduceMotion ? { rotate: 0 } : { rotate: 360 }}
             transition={{ duration: reduceMotion ? 0 : 48, repeat: reduceMotion ? 0 : Infinity, ease: 'linear' }}
           />
           <motion.div
-            className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400/20"
+            className="absolute left-1/2 top-1/2 h-[210px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400/20 sm:h-[320px] sm:w-[320px]"
             animate={reduceMotion ? { rotate: 0 } : { rotate: -360 }}
             transition={{ duration: reduceMotion ? 0 : 36, repeat: reduceMotion ? 0 : Infinity, ease: 'linear' }}
           />
           <motion.div
-            className="absolute left-1/2 top-1/2 h-[274px] w-[274px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-300/15"
+            className="absolute left-1/2 top-1/2 h-[186px] w-[186px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-300/15 sm:h-[274px] sm:w-[274px]"
             animate={reduceMotion ? { rotate: 0 } : { rotate: 360 }}
             transition={{ duration: reduceMotion ? 0 : 60, repeat: reduceMotion ? 0 : Infinity, ease: 'linear' }}
           />
@@ -134,7 +134,7 @@ export default function HeroVisual() {
               transformStyle: 'preserve-3d',
             }}
           >
-            <div className="relative flex h-[320px] w-[320px] items-center justify-center rounded-full border border-cyan-300/15 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 p-7 shadow-[inset_0_0_80px_rgba(59,130,246,0.14),0_40px_80px_rgba(14,42,78,0.45)]">
+            <div className="relative flex h-[220px] w-[220px] items-center justify-center rounded-full border border-cyan-300/15 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-950 p-5 shadow-[inset_0_0_80px_rgba(59,130,246,0.14),0_40px_80px_rgba(14,42,78,0.45)] sm:h-[320px] sm:w-[320px] sm:p-7">
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.16),_transparent_30%)]" />
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.2),_transparent_45%)]" />
               <motion.div
@@ -143,12 +143,12 @@ export default function HeroVisual() {
                 transition={{ duration: reduceMotion ? 0 : 6, repeat: reduceMotion ? 0 : Infinity, ease: 'easeInOut' }}
               />
               <div className="relative flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 via-slate-900/60 to-slate-950/90 shadow-[0_18px_50px_rgba(14,42,78,0.55)]">
-                <div className="relative flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-[4rem] font-black uppercase tracking-[0.3em] text-white shadow-[0_35px_80px_rgba(59,130,246,0.32)]">
+                <div className="relative flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-[2.2rem] font-black uppercase tracking-[0.22em] text-white shadow-[0_35px_80px_rgba(59,130,246,0.32)] sm:h-40 sm:w-40 sm:text-[4rem] sm:tracking-[0.3em]">
                   {'</>'}
                 </div>
 
                 <motion.div
-                  className="absolute left-1/2 top-1/2"
+                  className="absolute left-1/2 top-1/2 hidden sm:block"
                   animate={reduceMotion ? { rotate: 0 } : { rotate: 360 }}
                   transition={{ duration: reduceMotion ? 0 : 17, repeat: reduceMotion ? 0 : Infinity, ease: 'linear' }}
                 >
@@ -163,7 +163,7 @@ export default function HeroVisual() {
                 </motion.div>
 
                 <motion.div
-                  className="absolute left-1/2 top-1/2"
+                  className="absolute left-1/2 top-1/2 hidden sm:block"
                   animate={reduceMotion ? { rotate: 0 } : { rotate: -360 }}
                   transition={{ duration: reduceMotion ? 0 : 20, repeat: reduceMotion ? 0 : Infinity, ease: 'linear' }}
                 >

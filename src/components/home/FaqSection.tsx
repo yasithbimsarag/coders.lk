@@ -25,22 +25,22 @@ const faqItems = [
 
 export default function FaqSection() {
   return (
-    <section className="bg-surface py-20">
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <section className="bg-surface py-16 sm:py-20">
+      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm uppercase tracking-[0.32em] text-brand/80">FAQ</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-brand/80 sm:text-sm sm:tracking-[0.32em]">FAQ</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
             Questions about website and software development in Sri Lanka
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
+          <p className="mt-6 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Quick answers from our team. Explore services, pricing fit, and delivery process before starting your project.
           </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-4xl gap-4">
           {faqItems.map((item) => (
-            <article key={item.question} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-950">{item.question}</h3>
+            <article key={item.question} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+              <h3 className="text-lg font-semibold text-slate-950 sm:text-xl">{item.question}</h3>
               <p className="mt-3 leading-7 text-slate-600">{item.answer}</p>
             </article>
           ))}

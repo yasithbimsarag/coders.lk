@@ -92,20 +92,20 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-surface2 py-20">
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <section id="contact" className="bg-surface2 py-16 sm:py-20">
+      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="mb-12 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Get in touch</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-brand/80 sm:text-sm sm:tracking-[0.32em]">Get in touch</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
             Have a project in mind? Let’s make it happen.
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Reach out to Coders.lk for premium digital products, e-commerce systems and custom software built for growth.
           </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-[32px] border border-slate-200 bg-surface p-10 shadow-sm">
+          <div className="rounded-[32px] border border-slate-200 bg-surface p-6 shadow-sm sm:p-10">
             <div className="space-y-6">
               <div>
                 <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Contact details</p>
@@ -126,7 +126,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-slate-200 bg-surface p-10 shadow-sm">
+          <div className="rounded-[32px] border border-slate-200 bg-surface p-6 shadow-sm sm:p-10">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-slate-900">

@@ -45,14 +45,14 @@ export default function ServiceDetailPage() {
         ogImageAlt={`${service.heading} by Coders.lk`}
         schema={breadcrumbSchema}
       />
-      <main className="bg-background py-20">
-        <section className="mx-auto max-w-[1320px] px-6 lg:px-8">
-          <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Service</p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">{service.heading}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{service.description}</p>
+      <main className="bg-background py-16 sm:py-20">
+        <section className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-brand/80 sm:text-sm sm:tracking-[0.32em]">Service</p>
+          <h1 className="mt-4 max-w-4xl text-3xl font-semibold leading-tight text-slate-950 sm:text-5xl">{service.heading}</h1>
+          <p className="mt-6 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{service.description}</p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <article className="rounded-[28px] border border-slate-200 bg-surface p-7 shadow-sm">
+            <article className="rounded-[28px] border border-slate-200 bg-surface p-5 shadow-sm sm:p-7">
               <h2 className="text-xl font-semibold text-slate-950">Key Features</h2>
               <ul className="mt-4 space-y-3">
                 {service.keyFeatures.map((item) => (
@@ -61,11 +61,11 @@ export default function ServiceDetailPage() {
               </ul>
             </article>
 
-            <article className="rounded-[28px] border border-slate-200 bg-surface p-7 shadow-sm">
+            <article className="rounded-[28px] border border-slate-200 bg-surface p-5 shadow-sm sm:p-7">
               <h2 className="text-xl font-semibold text-slate-950">Technologies & Tools</h2>
               <div className="mt-4 flex flex-wrap gap-3">
                 {service.tools.map((tool) => (
-                  <span key={tool} className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700">
+                  <span key={tool} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-700 sm:px-4 sm:py-2 sm:text-sm">
                     {tool}
                   </span>
                 ))}
@@ -73,16 +73,16 @@ export default function ServiceDetailPage() {
             </article>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link to={service.ctaPath} className="inline-flex items-center rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-600">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <Link to={service.ctaPath} className="inline-flex w-full items-center justify-center rounded-full bg-brand px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-600 sm:w-auto">
               {service.ctaLabel}
             </Link>
-            <Link to="/services" className="inline-flex items-center rounded-full border border-slate-200 bg-surface px-7 py-3 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand">
+            <Link to="/services" className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-surface px-7 py-3 text-sm font-semibold text-slate-700 transition hover:border-brand hover:text-brand sm:w-auto">
               View All Services
             </Link>
           </div>
 
-          <div className="mt-12 rounded-[28px] border border-slate-200 bg-surface p-7 shadow-sm">
+          <div className="mt-12 rounded-[28px] border border-slate-200 bg-surface p-5 shadow-sm sm:p-7">
             <h2 className="text-xl font-semibold text-slate-950">Related Services</h2>
             <div className="mt-4 flex flex-wrap gap-3">
               {service.related.map((relatedSlug) => {
@@ -92,7 +92,7 @@ export default function ServiceDetailPage() {
                   <Link
                     key={relatedService.slug}
                     to={`/services/${relatedService.slug}`}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700 transition hover:border-brand hover:text-brand"
+                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-700 transition hover:border-brand hover:text-brand sm:px-4 sm:py-2 sm:text-sm"
                   >
                     {relatedService.title.replace(' Services in Sri Lanka | Coders.lk', '')}
                   </Link>

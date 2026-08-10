@@ -25,25 +25,25 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-blue-900/30 bg-[#031126] pt-12 text-sm text-blue-100">
+    <footer className="relative overflow-hidden border-t border-blue-900/30 bg-[#031126] pt-10 text-sm text-blue-100 sm:pt-12">
       <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(circle_at_12%_16%,rgba(59,130,246,0.22),transparent_30%),radial-gradient(circle_at_88%_18%,rgba(14,165,233,0.15),transparent_33%),linear-gradient(to_bottom,rgba(2,6,23,0.95),rgba(2,8,23,0.98))]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[radial-gradient(circle_at_30%_120%,rgba(37,99,235,0.22),transparent_40%)]" />
 
-      <div className="relative mx-auto grid max-w-[1320px] gap-10 px-6 lg:grid-cols-[1.25fr_1fr_1fr_1fr] lg:px-8">
+      <div className="relative mx-auto grid max-w-[1320px] gap-10 px-4 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr_1fr] lg:px-8">
         <div className="space-y-5">
           <div className="flex items-center gap-3">
             <div className="rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 p-2 shadow-[0_0_20px_rgba(59,130,246,0.45)]">
               <img src="/coders_logo.png" alt="Coders.lk logo" className="h-8 w-8 rounded-lg object-cover" />
             </div>
             <div>
-              <p className="text-2xl font-semibold tracking-tight text-white">Coders.lk</p>
+              <p className="text-xl font-semibold tracking-tight text-white sm:text-2xl">Coders.lk</p>
               <p className="mt-0.5 text-sm text-blue-100/85">Building digital products for ambitious businesses.</p>
             </div>
           </div>
 
           <div className="h-0.5 w-7 rounded-full bg-blue-400/80" />
 
-          <p className="max-w-md text-base leading-7 text-blue-100/90">
+          <p className="max-w-md text-sm leading-7 text-blue-100/90 sm:text-base">
             A premium Sri Lankan technology company focused on websites, e-commerce and enterprise software.
           </p>
 
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xl font-semibold text-white">Navigation</p>
+          <p className="text-lg font-semibold text-white sm:text-xl">Navigation</p>
           <div className="h-0.5 w-7 rounded-full bg-blue-400/80" />
           <div className="space-y-3">
             <Link to="/" onClick={handleInternalNavigate} className="flex items-center gap-2.5 py-1 text-base text-blue-100/90 transition hover:text-blue-300"><Home size={16} /> Home</Link>
@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xl font-semibold text-white">Services</p>
+          <p className="text-lg font-semibold text-white sm:text-xl">Services</p>
           <div className="h-0.5 w-7 rounded-full bg-blue-400/80" />
           <div className="space-y-3">
             <Link to="/services/website-development" onClick={handleInternalNavigate} className="flex items-center gap-2.5 py-1 text-base text-blue-100/90 transition hover:text-blue-300"><Monitor size={16} /> Website Development</Link>
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div className="space-y-5">
-          <p className="text-xl font-semibold text-white">Contact</p>
+          <p className="text-lg font-semibold text-white sm:text-xl">Contact</p>
           <div className="h-0.5 w-7 rounded-full bg-blue-400/80" />
           <div className="space-y-3">
             <p className="flex items-start gap-2.5 text-base text-blue-100/95"><Mail size={16} className="mt-1 text-blue-300" /> <span>Email<br /><a href="mailto:hello@coders.lk" className="text-white transition hover:text-blue-300">hello@coders.lk</a></span></p>
@@ -114,8 +114,8 @@ export default function Footer() {
       </div>
 
       <div className="relative mt-10 border-t border-blue-500/20 bg-[#020d1d]/80">
-        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-4 px-6 py-4 text-sm text-blue-100/85 lg:flex-row lg:px-8">
-          <div className="flex items-center gap-2.5">
+        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-4 px-4 py-4 text-center text-sm text-blue-100/85 sm:px-6 lg:flex-row lg:px-8 lg:text-left">
+          <div className="flex items-start gap-2.5 sm:items-center">
             <ShieldCheck size={18} className="text-blue-300" />
             <p>
               <span className="font-semibold text-white">Trusted by businesses</span>
@@ -124,8 +124,16 @@ export default function Footer() {
             </p>
           </div>
           <p className="text-blue-100/80">© 2026 Coders.lk. All rights reserved.</p>
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3 py-1.5 text-blue-100/90">
-            <span className="text-base">🇱🇰</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3 py-1.5 text-xs text-blue-100/90 sm:text-sm">
+            <img
+              src="/flags/lk-v2.png?v=2"
+              width="20"
+              height="14"
+              alt="Sri Lankan flag"
+              className="h-3.5 w-5 rounded-[2px] object-cover ring-1 ring-white/20"
+              loading="lazy"
+              decoding="async"
+            />
             <span>Proudly Sri Lankan</span>
             <Heart size={14} className="text-blue-300" />
           </div>

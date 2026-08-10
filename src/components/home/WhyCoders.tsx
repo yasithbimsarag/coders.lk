@@ -23,17 +23,17 @@ const reasons = [
 
 export default function WhyCoders() {
   return (
-    <section className="bg-background py-20">
-      <div className="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <section className="bg-background py-16 sm:py-20">
+      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8">
         <div className="mb-14 max-w-3xl">
-          <p className="text-sm uppercase tracking-[0.32em] text-brand/80">Why teams choose Coders.lk.</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Why teams choose Coders.lk.</h2>
+          <p className="text-xs uppercase tracking-[0.2em] text-brand/80 sm:text-sm sm:tracking-[0.32em]">Why teams choose Coders.lk.</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-5xl">Why teams choose Coders.lk.</h2>
         </div>
         <div className="grid gap-6 lg:grid-cols-2">
           {reasons.map((reason) => (
-            <article key={reason.number} className="rounded-[32px] border border-slate-200 bg-surface p-10 transition hover:border-brand hover:bg-slate-50">
-              <div className="text-brand text-5xl font-semibold opacity-20">{reason.number}</div>
-              <h3 className="mt-6 text-2xl font-semibold text-slate-950">{reason.title}</h3>
+            <article key={reason.number} className="rounded-[32px] border border-slate-200 bg-surface p-6 transition hover:border-brand hover:bg-slate-50 sm:p-10">
+              <div className="text-brand text-4xl font-semibold opacity-20 sm:text-5xl">{reason.number}</div>
+              <h3 className="mt-5 text-xl font-semibold text-slate-950 sm:mt-6 sm:text-2xl">{reason.title}</h3>
               <p className="mt-4 leading-7 text-slate-600">{reason.description}</p>
             </article>
           ))}
